@@ -28,3 +28,11 @@
 	caliber = "a762"
 	max_ammo = 1
 	start_empty = TRUE
+
+/obj/item/ammo_box/magazine/internal/musket
+	name = "musket internal magazine"
+	desc = "You shouldn't look down the barrel of a gun."
+	ammo_type = /obj/item/ammo_casing/caseless/musket
+	caliber = "musket"
+	max_ammo = 1
+	start_empty = TRUE

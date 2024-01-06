@@ -189,3 +189,25 @@
 		new /obj/item/stack/cable_coil(get_turf(src), 10)
 		slung = FALSE
 		update_icon()
+
+/obj/item/gun/ballistic/rifle/musket
+	name = "maintenance musket"
+	desc = "With a powder horn at your side and a musket in-hand, it's you against the station."
+	icon_state = "piperifle"
+	lefthand_file = 'icons/mob/inhands/weapons/64x_guns_left.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/64x_guns_right.dmi'
+	item_state = "shotgun_improv"
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
+	bolt_type = BOLT_TYPE_NO_BOLT
+	automatic = TRUE
+	cartridge_wording = "shot"
+	slot_flags = ITEM_SLOT_BACK
+	mag_type = /obj/item/ammo_box/magazine/internal/musket
+	no_pin_required = TRUE
+	w_class = WEIGHT_CLASS_HUGE
+	weapon_weight = WEAPON_HEAVY
+	slowdown = 0.1
+	force = 8
+	recoil = 1.2
+	pb_knockback = 2
