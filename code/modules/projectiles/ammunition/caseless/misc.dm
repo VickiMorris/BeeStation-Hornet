@@ -25,7 +25,7 @@
 	name = "musket shot"
 	desc = "A handful of rough metal pellets, meant to be stuffed down the barrel of a musket."
 	icon_state = "s-casing-live"
-	projectile_type = /obj/projectile/bullet/pellet/musket/shot
+	projectile_type = /obj/projectile/bullet/pellet/musket
 	pellets = 8
-	randomspread = FALSE
+	randomspread = TRUE
 	variance = 30

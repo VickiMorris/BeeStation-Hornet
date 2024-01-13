@@ -36,7 +36,7 @@
 
 /obj/projectile/bullet/musket
 	damage = 55
-	armour_penetration = -50
+	armour_penetration = -40
 	dismemberment = 5
 
 // Subtype of pellet so damage drop-off affects it without needing to copy & paste the proc. See code\modules\projectiles\projectile\bullets\shotgun.dm
@@ -44,5 +44,5 @@
 	damage = 8
 	tile_dropoff = 0.75
 	tile_dropoff_s = 0
-	armour_penetration = -30
+	armour_penetration = -40
 

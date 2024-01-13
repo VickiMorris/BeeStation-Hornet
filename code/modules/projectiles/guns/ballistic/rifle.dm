@@ -190,6 +190,10 @@
 		slung = FALSE
 		update_icon()
 
+///////////////////////
+//      MUSKET       //
+///////////////////////
+
 /obj/item/gun/ballistic/rifle/musket
 	name = "maintenance musket"
 	desc = "With a powder horn at your side and a musket in-hand, it's you against the station."
@@ -200,14 +204,34 @@
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	bolt_type = BOLT_TYPE_NO_BOLT
-	automatic = TRUE
+	bolt_wording = "hammer"
 	cartridge_wording = "shot"
 	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/internal/musket
+	var/obj/item/reagent_containers/powder_holder
 	no_pin_required = TRUE
+	can_bayonet = TRUE
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slowdown = 0.1
 	force = 8
 	recoil = 1.2
 	pb_knockback = 2
+
+/obj/item/gun/ballistic/rifle/musket/Initialize(mapload)
+	. = ..()
+
+	powder_holder = new /obj/item/reagent_containers/powderpan(src)
+
+/obj/item/gun/ballistic/rifle/musket/attackby(obj/item/A, mob/user, params)
+	if (istype(A, /obj/item/reagent_containers))
+		powder_holder.attackby(A, user, params, TRUE)
+
+	..()
+
+/obj/item/reagent_containers/powderpan
+	name = "musket powder pan"
+	desc = "You shouldn't be seeing this."
+	volume = 5
+	possible_transfer_amounts = list(5)
+	reagent_flags = DRAWABLE | REFILLABLE
