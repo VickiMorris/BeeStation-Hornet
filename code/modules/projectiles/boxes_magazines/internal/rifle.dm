@@ -28,3 +28,11 @@
 	caliber = "a762"
 	max_ammo = 1
 	start_empty = TRUE
+
+/obj/item/ammo_box/magazine/internal/mag_rifle
+	name = "\improper MAR internal magazine"
+	desc = "That's a big bullet."
+	ammo_type = /obj/item/ammo_casing/caseless/mag_flechette
+	caliber = "mar"
+	max_ammo = 9 //Lower to like, 2, just testing now (2+1 total)
+	//start_empty = TRUE

@@ -195,3 +195,26 @@
 		new /obj/item/stack/cable_coil(get_turf(src), 10)
 		slung = FALSE
 		update_icon()
+
+/obj/item/gun/ballistic/rifle/mag_rifle
+	name = "magnetic accelerator rifle"
+	desc = "A prototype weapons that fires heavy metal flechettes using a series of electromagnets."
+	icon_state = "leverrifle"
+	lefthand_file = 'icons/mob/inhands/weapons/64x_guns_left.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/64x_guns_right.dmi'
+	item_state = "leveraction"
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
+	slot_flags = ITEM_SLOT_BACK
+	rack_sound = "sound/weapons/leveractionrack.ogg"
+	half_rack_sound = "sound/weapons/leveractionrack_open.ogg"
+	bolt_drop_sound = "sound/weapons/leveractionrack_close.ogg"
+	fire_sound = "sound/weapons/leveractionshot.ogg"
+	mag_type = /obj/item/ammo_box/magazine/internal/mag_rifle
+	w_class = WEIGHT_CLASS_HUGE
+	weapon_weight = WEAPON_HEAVY
+	bolt_wording = "lever"
+	cartridge_wording = "cartridge"
+	recoil = 1
+	bolt_type = BOLT_TYPE_TWO_STEP
+	fire_sound_volume = 85

@@ -31,3 +31,21 @@
 	damage = 35
 	speed = 0.7
 	armour_penetration = 15
+
+// Magnetic Accelerator Rifle
+
+/obj/projectile/bullet/mar
+	name = "\improper MAR flechette"
+	damage = 40
+	armour_penetration = 50
+	speed = 0.4
+	projectile_piercing = PASSMOB | PASSTRANSPARENT | PASSGRILLE | PASSFLAPS | PASSDOORS
+
+/obj/projectile/bullet/mar/on_hit(atom/target, blocked = 0)
+	if(ismob(target) && (blocked != 100))
+		DISABLE_BITFIELD(projectile_piercing, PASSMOB)
+
+	else if(isobj(target) && (blocked != 100))
+		var/obj/O = target
+		O.take_damage(60, BRUTE, BULLET, FALSE)
+	return ..()
