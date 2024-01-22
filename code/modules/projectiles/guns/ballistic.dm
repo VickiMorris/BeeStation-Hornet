@@ -320,10 +320,8 @@
 			playsound(src, load_sound, load_sound_volume, load_sound_vary)
 			if (chambered == null && bolt_type == BOLT_TYPE_NO_BOLT)
 				chamber_round()
-			A.update_icon()
-			update_icon()
 		else
-			to_chat(user, "<span class='notice'>\The [src] doesn't have room for another [cartridge_wording]!</span>")
+			to_chat(user, "<span class='warning'>You failed to load anything into [src]!</span>")
 		return
 	if(istype(A, /obj/item/suppressor))
 		var/obj/item/suppressor/S = A

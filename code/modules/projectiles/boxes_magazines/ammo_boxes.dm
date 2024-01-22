@@ -3,6 +3,7 @@
 	desc = "Designed to quickly reload revolvers."
 	icon_state = "357"
 	ammo_type = /obj/item/ammo_casing/a357
+	multigive = TRUE
 	max_ammo = 7
 	multiple_sprites = 1
 
@@ -16,9 +17,22 @@
 	desc = "Designed to quickly reload revolvers."
 	icon_state = "38"
 	ammo_type = /obj/item/ammo_casing/c38
+	multigive = TRUE
 	max_ammo = 6
 	multiple_sprites = 1
 	custom_materials = list(/datum/material/iron = 20000)
+
+/obj/item/ammo_box/c38/box
+	name = "ammo box (.38)"
+	desc = "A small pack of .38 cartridges"
+	icon_state = "357OLD"
+	ammo_type = /obj/item/ammo_casing/c38
+	multigive = FALSE
+	max_ammo = 7
+	multiple_sprites = 1
+	custom_materials = list(/datum/material/iron = 22000)
+	bullet_cost = list(/datum/material/iron = 21000)
+	base_cost = list(/datum/material/iron = 1000)
 
 /obj/item/ammo_box/c38/trac
 	name = "speed loader (.38 TRAC)"
@@ -112,17 +126,6 @@
 	ammo_type = /obj/item/ammo_casing/c45
 	max_ammo = 20
 
-/obj/item/ammo_box/c38/box
-	name = "ammo box (.38)"
-	desc = "A small pack of .38 cartridges"
-	icon_state = "357OLD"
-	ammo_type = /obj/item/ammo_casing/c38
-	max_ammo = 7
-	multiple_sprites = 1
-	custom_materials = list(/datum/material/iron = 22000)
-	bullet_cost = list(/datum/material/iron = 21000)
-	base_cost = list(/datum/material/iron = 1000)
-
 /obj/item/ammo_box/a40mm
 	name = "ammo box (40mm grenades)"
 	icon_state = "40mm"
@@ -135,6 +138,7 @@
 	desc = "A stripper clip."
 	icon_state = "762"
 	ammo_type = /obj/item/ammo_casing/a762
+	multigive = TRUE
 	max_ammo = 5
 	multiple_sprites = 1
 
@@ -149,10 +153,12 @@
 	icon = 'icons/obj/guns/toy.dmi'
 	icon_state = "foambox"
 	ammo_type = /obj/item/ammo_casing/caseless/foam_dart
+	multigive = TRUE
 	max_ammo = 40
 	custom_materials = list(/datum/material/iron = 500)
 
 /obj/item/ammo_box/foambox/riot
 	icon_state = "foambox_riot"
 	ammo_type = /obj/item/ammo_casing/caseless/foam_dart/riot
+	multigive = FALSE
 	custom_materials = list(/datum/material/iron = 50000)

@@ -18,7 +18,8 @@
 	var/max_ammo = 7
 	var/multiple_sprites = 0
 	var/caliber
-	var/multiload = FALSE //Only specific magazines have multi-load enabled. This includes all internal mags/cylinders
+	var/multiload = FALSE //Only specific magazines have multi-load enabled. Most internal magazines are included in this.
+	var/multigive = FALSE //Ammo boxes must also be compatible with multi-loading, otherwise it will load one bullet at a time.
 	var/start_empty = FALSE
 	var/list/bullet_cost
 	var/list/base_cost// override this one as well if you override bullet_cost
@@ -68,19 +69,33 @@
 		return
 	if(istype(A, /obj/item/ammo_box))
 		var/obj/item/ammo_box/AM = A
+		var/speedloading = FALSE
+		if(multiload && AM.multigive)
+			speedloading = TRUE
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
 			//If the box you're loading from is empty, break.
 			if(!AM.stored_ammo)
 				break
-			if(!multiload)
-				if(!do_after(user, 4, src, IGNORE_USER_LOC_CHANGE))
+
+			//If the box you're loading from is full, also break. Seperate check for magazines because cylinder-style magazines are FILTHY LIARS
+			if(istype(src, /obj/item/ammo_box/magazine))
+				var/obj/item/ammo_box/magazine/B = src
+				if(B.ammo_count(TRUE) == max_ammo)
+					break
+			else if(stored_ammo.len == max_ammo)
+				break
+
+			if(!speedloading)
+				if(!do_after(user, 4, AM, IGNORE_USER_LOC_CHANGE))
 					break
 			var/did_load = give_round(AC)
 			if(did_load)
 				AM.stored_ammo -= AC
 				num_loaded++
-				if(!silent && !multiload)
-					playsound(src, 'sound/weapons/bulletinsert.ogg', 60, TRUE)
+				if(!(silent || speedloading))
+					playsound(src, 'sound/weapons/bulletinsert.ogg', 40, TRUE)
+				A.update_icon()
+				update_icon()
 			if(!did_load)
 				break
 	if(istype(A, /obj/item/ammo_casing))
@@ -93,7 +108,7 @@
 		if(!silent)
 			to_chat(user, "<span class='notice'>You loaded [num_loaded] shell\s into \the [src]!</span>")
 			if(istype(A, /obj/item/ammo_casing))
-				playsound(src, 'sound/weapons/bulletinsert.ogg', 60, TRUE)
+				playsound(src, 'sound/weapons/bulletinsert.ogg', 50, TRUE)
 		A.update_icon()
 		update_icon()
 	return num_loaded
@@ -104,7 +119,7 @@
 		A.forceMove(drop_location())
 		if(!user.is_holding(src) || !user.put_in_hands(A))	//incase they're using TK
 			A.bounce_away(FALSE, NONE)
-		playsound(src, 'sound/weapons/bulletinsert.ogg', 60, TRUE)
+		playsound(src, 'sound/weapons/bulletinsert.ogg', 50, TRUE)
 		to_chat(user, "<span class='notice'>You remove a round from [src]!</span>")
 		update_icon()
 
