@@ -28,19 +28,14 @@
 		M.silent = max(M.silent, 10)
 
 /obj/projectile/bullet/pepperball
-	name = "pepperball"
+	name = "pellet"
 	icon_state = "pepperball"
-	damage = 0
-	stamina = 30 //Disabler is 28 damage
-	eyeblur = 2
-	range = 22
+	damage = 12
+	range = 25
 
 /obj/projectile/bullet/pepperball/on_hit(atom/target)
-	if (iscarbon(target))
-		var/mob/living/carbon/T = target
-		if (T.is_eyes_covered())
-			eyeblur = 0
-			stamina -= 13
-		if (T.is_mouth_covered())
-			stamina -= 13
+	if(istype(target, /obj/machinery/light)) //Pops lights instantly, utility outside of combat
+		var/obj/machinery/light/L = target
+		L.break_light_tube()
+
 	..()

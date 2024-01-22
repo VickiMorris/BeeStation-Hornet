@@ -447,7 +447,7 @@
 		. += "It does not seem to have a round chambered."
 	if (bolt_locked)
 		. += "The [bolt_wording] is locked back and needs to be released before firing."
-	if (suppressed)
+	if (suppressed && can_suppress)
 		. += "It has a suppressor attached that can be removed with <b>alt+click</b>."
 	if (bolt_type == BOLT_TYPE_PUMP)
 		. += "You can <b>ctrl+click</b> to half-pump \the [src] to directly chamber a [cartridge_wording]."

@@ -100,32 +100,38 @@
 	fire_delay = 2
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 
-//Pepperball Pistol, the ballistic green-shift sec alternative to the disabler; slighly higher damage, less ammo, EMP-proof, and able to be reloaded on the go.
-/obj/item/gun/ballistic/automatic/pistol/pepperball
-	name = "pepperball pistol"
-	desc = "An older gas-operated non-lethal sidearm. Its use on NanoTrasen stations has declined with the introduction of energy-based weaponary."
+//Pellet Pistol, a cheap, low-damage bullet spam sidearm for truly down-bad Syndicate agents; The foam dart pistol's ornery older brother
+/obj/item/gun/ballistic/automatic/pistol/airgun
+	name = "pellet pistol"
+	desc = "A slim gas-operated sidearm. While providing lower stopping power than the Stechkin, the ease of ammo acquisition and integeral suppressor makes it a perfect emergency weapon."
 	icon_state = "pepperpistol"
-	w_class = WEIGHT_CLASS_NORMAL
-	can_suppress = FALSE
-	tac_reloads = FALSE
+	can_suppress = FALSE //Integeral Suppressor, can't prise it out.
+	w_class = WEIGHT_CLASS_SMALL //Normal-Sized with an airtank installed.
 	mag_type = /obj/item/ammo_box/magazine/pepperball
 	var/obj/item/tank/internals/emergency_oxygen/air_tank
 	var/air_usage = 0.025
 	fire_sound = 'sound/items/syringeproj.ogg'
-	fire_sound_volume = 60
-	equip_time = 2 SECONDS
+	fire_sound_volume = 50
+	load_sound_volume = 20
+	rack_sound_volume = 30
+	lock_back_sound_volume = 30
+	eject_sound_volume = 20
+	bolt_drop_sound_volume = 30
 
-/obj/item/gun/ballistic/automatic/pistol/pepperball/Initialize(mapload)
+/obj/item/gun/ballistic/automatic/pistol/airgun/Initialize(mapload)
 	install_tank(new /obj/item/tank/internals/emergency_oxygen/cold_air(src))
+
+	var/obj/item/suppressor/S = new(src)
+	suppressed = S
 	return ..()
 
-/obj/item/gun/ballistic/automatic/pistol/pepperball/update_icon()
+/obj/item/gun/ballistic/automatic/pistol/airgun/update_icon()
 	..()
 
 	if (air_tank)
 		add_overlay("[icon_state]_[air_tank.icon_state]")
 
-/obj/item/gun/ballistic/automatic/pistol/pepperball/examine(mob/user)
+/obj/item/gun/ballistic/automatic/pistol/airgun/examine(mob/user)
 	. = ..()
 	if (air_tank)
 		var/D = "It has \a [air_tank] installed."
@@ -135,12 +141,12 @@
 	else
 		. += "It requires an air tank to fire."
 
-/obj/item/gun/ballistic/automatic/pistol/pepperball/proc/install_tank(obj/item/tank/internals/emergency_oxygen/T) //Similar to installing a suppressor.
+/obj/item/gun/ballistic/automatic/pistol/airgun/proc/install_tank(obj/item/tank/internals/emergency_oxygen/T) //Similar to installing a suppressor.
 	air_tank = T
 	weight_class_up()
 	update_icon()
 
-/obj/item/gun/ballistic/automatic/pistol/pepperball/attackby(obj/item/A, mob/user, params)
+/obj/item/gun/ballistic/automatic/pistol/airgun/attackby(obj/item/A, mob/user, params)
 	if (istype(A, /obj/item/tank/internals/emergency_oxygen))
 		if (!user.is_holding(src))
 			to_chat(user, "<span class='notice'>You need be holding \the [src] to fit \the [A] to it!</span>")
@@ -156,7 +162,7 @@
 	..()
 
 
-/obj/item/gun/ballistic/automatic/pistol/pepperball/AltClick(mob/user)
+/obj/item/gun/ballistic/automatic/pistol/airgun/AltClick(mob/user)
 	if (!air_tank)
 		to_chat(user, "<span class='warning'>There is no air tank installed on \the [src]!</span>")
 		return
@@ -170,13 +176,13 @@
 	air_tank = null
 	update_icon()
 
-/obj/item/gun/ballistic/automatic/pistol/pepperball/can_shoot()
+/obj/item/gun/ballistic/automatic/pistol/airgun/can_shoot()
 	if (!air_tank)
 		return FALSE
 	else
 		return chambered
 
-/obj/item/gun/ballistic/automatic/pistol/pepperball/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
+/obj/item/gun/ballistic/automatic/pistol/airgun/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	if (air_tank)
 		if (!air_tank.air_contents.total_moles()) //If the tank's completetly empty, can't fire it.
 			playsound(src, 'sound/items/cig_snuff.ogg', 25, 1)
