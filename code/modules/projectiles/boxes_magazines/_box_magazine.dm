@@ -70,6 +70,7 @@
 	if(istype(A, /obj/item/ammo_box))
 		var/obj/item/ammo_box/AM = A
 		var/speedloading = FALSE
+		var/did_load = FALSE //Initializing here prevents sound from being played twice on last bullet loaded.
 		if(multiload && AM.multigive)
 			speedloading = TRUE
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
@@ -85,15 +86,16 @@
 			else if(stored_ammo.len == max_ammo)
 				break
 
+			if(!(speedloading) && did_load)
+				playsound(src, 'sound/weapons/bulletinsert.ogg', 30, TRUE)
+
 			if(!speedloading)
 				if(!do_after(user, 4, AM, IGNORE_USER_LOC_CHANGE))
 					break
-			var/did_load = give_round(AC)
+			did_load = give_round(AC)
 			if(did_load)
 				AM.stored_ammo -= AC
 				num_loaded++
-				if(!(silent || speedloading))
-					playsound(src, 'sound/weapons/bulletinsert.ogg', 40, TRUE)
 				A.update_icon()
 				update_icon()
 			if(!did_load)
@@ -107,8 +109,7 @@
 	if(num_loaded)
 		if(!silent)
 			to_chat(user, "<span class='notice'>You loaded [num_loaded] shell\s into \the [src]!</span>")
-			if(istype(A, /obj/item/ammo_casing))
-				playsound(src, 'sound/weapons/bulletinsert.ogg', 50, TRUE)
+			playsound(src, 'sound/weapons/bulletinsert.ogg', 55, TRUE)
 		A.update_icon()
 		update_icon()
 	return num_loaded
@@ -166,8 +167,6 @@
 //Behavior for ammo pouches (disposable paper ammo box)
 /obj/item/ammo_box/pouch
 	icon_state = "bagobullets"
-	bullet_cost = null
-	base_cost = null
 
 /obj/item/ammo_box/pouch/attack_self(mob/user)
 	//If it's out of ammo, use it in hand to return the sheet of paper and 'destroy' the ammo box

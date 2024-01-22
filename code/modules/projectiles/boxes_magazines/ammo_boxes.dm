@@ -3,9 +3,15 @@
 	desc = "Designed to quickly reload revolvers."
 	icon_state = "357"
 	ammo_type = /obj/item/ammo_casing/a357
-	multigive = TRUE
 	max_ammo = 7
 	multiple_sprites = 1
+
+/obj/item/ammo_box/a357/speedloader
+	name = "speed loader (.38)"
+	desc = "Designed to quickly reload revolvers. This one is sized for .38 special."
+	caliber = "357"
+	multigive = TRUE
+	start_empty = TRUE
 
 /obj/item/ammo_box/a357/match
 	name = "speed loader (.357 Match)"
@@ -17,17 +23,22 @@
 	desc = "Designed to quickly reload revolvers."
 	icon_state = "38"
 	ammo_type = /obj/item/ammo_casing/c38
-	multigive = TRUE
 	max_ammo = 6
 	multiple_sprites = 1
 	custom_materials = list(/datum/material/iron = 20000)
+
+/obj/item/ammo_box/c38/speedloader
+	name = "speed loader (.38)"
+	desc = "Designed to quickly reload revolvers. This one is sized for .38 special."
+	caliber = "38"
+	multigive = TRUE
+	start_empty = TRUE
 
 /obj/item/ammo_box/c38/box
 	name = "ammo box (.38)"
 	desc = "A small pack of .38 cartridges"
 	icon_state = "357OLD"
 	ammo_type = /obj/item/ammo_casing/c38
-	multigive = FALSE
 	max_ammo = 7
 	multiple_sprites = 1
 	custom_materials = list(/datum/material/iron = 22000)
@@ -138,9 +149,15 @@
 	desc = "A stripper clip."
 	icon_state = "762"
 	ammo_type = /obj/item/ammo_casing/a762
-	multigive = TRUE
 	max_ammo = 5
 	multiple_sprites = 1
+
+/obj/item/ammo_box/a762/speedloader
+	name = "speed loader (.38)"
+	desc = "A thin metal clip designed to ease loading of multiple cartridges. This one is sized for 7.62mm"
+	caliber = "a762"
+	multigive = TRUE
+	start_empty = TRUE
 
 /obj/item/ammo_box/n762
 	name = "ammo box (7.62x38mmR)"
@@ -153,12 +170,18 @@
 	icon = 'icons/obj/guns/toy.dmi'
 	icon_state = "foambox"
 	ammo_type = /obj/item/ammo_casing/caseless/foam_dart
-	multigive = TRUE
 	max_ammo = 40
+	multiload = TRUE
 	custom_materials = list(/datum/material/iron = 500)
+
+/obj/item/ammo_box/foambox/speedloader
+	name = "foam dart scoop"
+	desc = "A small plastic scoop that's designed to make picking up and loading foam darts quicker!"
+	max_ammo = 15
+	multigive = TRUE
+	start_empty = TRUE
 
 /obj/item/ammo_box/foambox/riot
 	icon_state = "foambox_riot"
 	ammo_type = /obj/item/ammo_casing/caseless/foam_dart/riot
-	multigive = FALSE
 	custom_materials = list(/datum/material/iron = 50000)
