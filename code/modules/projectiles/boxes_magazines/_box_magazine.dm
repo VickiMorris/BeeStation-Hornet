@@ -71,7 +71,7 @@
 		var/obj/item/ammo_box/AM = A
 		var/speedloading = FALSE
 		var/did_load = FALSE //Initializing here prevents sound from being played twice on last bullet loaded.
-		if(multiload && AM.multigive)
+		if(multiload && AM.multigive) //This is never gonna change mid-load, so lets check and set it once.
 			speedloading = TRUE
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
 			//If the box you're loading from is empty, break.

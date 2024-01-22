@@ -7,8 +7,8 @@
 	multiple_sprites = 1
 
 /obj/item/ammo_box/a357/speedloader
-	name = "speed loader (.38)"
-	desc = "Designed to quickly reload revolvers. This one is sized for .38 special."
+	name = "speed loader (.357)"
+	desc = "Designed to quickly reload revolvers."
 	caliber = "357"
 	multigive = TRUE
 	start_empty = TRUE
@@ -29,7 +29,7 @@
 
 /obj/item/ammo_box/c38/speedloader
 	name = "speed loader (.38)"
-	desc = "Designed to quickly reload revolvers. This one is sized for .38 special."
+	desc = "Designed to quickly reload revolvers."
 	caliber = "38"
 	multigive = TRUE
 	start_empty = TRUE
@@ -153,8 +153,8 @@
 	multiple_sprites = 1
 
 /obj/item/ammo_box/a762/speedloader
-	name = "speed loader (.38)"
-	desc = "A thin metal clip designed to ease loading of multiple cartridges. This one is sized for 7.62mm"
+	name = "stripper clip (7.62mm)"
+	desc = "A thin metal clip designed to ease loading of multiple cartridges."
 	caliber = "a762"
 	multigive = TRUE
 	start_empty = TRUE
