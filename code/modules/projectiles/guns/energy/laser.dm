@@ -9,6 +9,30 @@
 	ammo_x_offset = 1
 	shaded_charge = 1
 
+/obj/item/gun/energy/laser/burst
+	name = "burst laser carbine"
+	desc = "A more advanced laser rifle, capable of delivering short bursts of laser fire in addition to higher-power single-shot projectiles"
+	icon_state = "laser"
+	item_state = "laser"
+	w_class = WEIGHT_CLASS_BULKY
+	custom_materials = list(/datum/material/iron=2000)
+	ammo_type = list(/obj/item/ammo_casing/energy/lasergun/carbine, /obj/item/ammo_casing/energy/lasergun/burst)
+	ammo_x_offset = 1
+	shaded_charge = 1
+
+/obj/item/gun/energy/laser/burst/attack_self(mob/living/user as mob)
+	. = ..()
+
+	if(select == 2) //Check for Burst Fire Mode, set stats
+		fire_sound_volume = 30
+		burst_size = 3
+		spread = 12
+
+	else //Default to Single Shot Stats otherwise
+		fire_sound_volume = 50
+		burst_size = 1
+		spread = 0
+
 /obj/item/gun/energy/laser/practice
 	name = "practice laser gun"
 	desc = "A modified version of the basic laser gun, this one fires less concentrated energy bolts designed for target practice."

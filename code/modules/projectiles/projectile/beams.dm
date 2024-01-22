@@ -23,6 +23,14 @@
 	muzzle_type = /obj/effect/projectile/muzzle/laser
 	impact_type = /obj/effect/projectile/impact/laser
 
+/obj/projectile/beam/laser/carbine
+	damage = 25
+	armour_penetration = 20
+
+/obj/projectile/beam/laser/carbine/burst
+	damage = 12
+	eyeblur = 1
+
 /obj/projectile/beam/laser/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
