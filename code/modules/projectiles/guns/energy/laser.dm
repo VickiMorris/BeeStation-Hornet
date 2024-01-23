@@ -4,17 +4,18 @@
 	icon_state = "laser"
 	item_state = "laser"
 	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_MEDIUM
 	custom_materials = list(/datum/material/iron=2000)
 	ammo_type = list(/obj/item/ammo_casing/energy/lasergun)
 	ammo_x_offset = 1
 	shaded_charge = 1
+	dual_wield_spread = 30
 
 /obj/item/gun/energy/laser/burst
-	name = "burst laser carbine"
+	name = "burst laser rifle"
 	desc = "A more advanced laser rifle, capable of delivering short bursts of laser fire in addition to higher-power single-shot projectiles"
 	icon_state = "laser"
 	item_state = "laser"
-	w_class = WEIGHT_CLASS_BULKY
 	custom_materials = list(/datum/material/iron=2000)
 	ammo_type = list(/obj/item/ammo_casing/energy/lasergun/carbine, /obj/item/ammo_casing/energy/lasergun/burst)
 	ammo_x_offset = 1

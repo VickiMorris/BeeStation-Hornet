@@ -11,7 +11,15 @@
 	flight_x_offset = 15
 	flight_y_offset = 10
 	weapon_weight = WEAPON_MEDIUM
-	dual_wield_spread = 60
+	dual_wield_spread = 30
+
+/obj/item/gun/energy/e_gun/carbine
+	name = "energy carbine"
+	desc = "A slightly more compact design of the energy gun, sacrificing ammo capacity for portability."
+	w_class = WEIGHT_CLASS_LARGE
+	gun_charge = 800 //8 laser, 20 disabler
+	weapon_weight = WEAPON_LIGHT
+	dual_wield_spread = 24
 
 /obj/item/gun/energy/e_gun/mini
 	name = "miniature energy gun"
