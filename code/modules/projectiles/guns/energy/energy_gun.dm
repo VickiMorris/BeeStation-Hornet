@@ -16,8 +16,13 @@
 /obj/item/gun/energy/e_gun/carbine
 	name = "energy carbine"
 	desc = "A slightly more compact design of the energy gun, sacrificing ammo capacity for portability."
+	icon_state = "energycarbine"
+	item_state = "gun"
 	w_class = WEIGHT_CLASS_LARGE
-	gun_charge = 800 //8 laser, 20 disabler
+	gun_charge = 700 //7 laser, 17 disabler
+	charge_sections = 3
+	flight_x_offset = 16
+	flight_y_offset = 13
 	weapon_weight = WEAPON_LIGHT
 	dual_wield_spread = 24
 
