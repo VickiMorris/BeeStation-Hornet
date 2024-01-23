@@ -19,7 +19,7 @@
 /obj/item/ammo_casing/energy/lasergun/burst //324 Theoretical Damage
 	projectile_type = /obj/projectile/beam/laser/carbine/burst
 	e_cost = 36
-	delay = 1.8
+	delay = 1.65
 	select_name = "burst"
 
 /obj/item/ammo_casing/energy/lasergun/captain
