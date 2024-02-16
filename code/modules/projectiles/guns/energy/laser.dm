@@ -11,13 +11,15 @@
 	shaded_charge = 1
 	dual_wield_spread = 30
 
+
+//Upgrade Variant for the laser gun, offers a slightly more efficient burst mode with theoretically higher damage output and damage pool
 /obj/item/gun/energy/laser/burst
 	name = "burst laser rifle"
-	desc = "A more advanced laser rifle, capable of delivering short bursts of laser fire in addition to higher-power single-shot projectiles"
+	desc = "A more advanced laser rifle, capable of delivering short bursts of laser fire."
 	icon_state = "laser"
 	item_state = "laser"
-	custom_materials = list(/datum/material/iron=2000)
-	ammo_type = list(/obj/item/ammo_casing/energy/lasergun/carbine, /obj/item/ammo_casing/energy/lasergun/burst)
+	custom_materials = list(/datum/material/iron=3000, /datum/material/titanium=1000)
+	ammo_type = list(/obj/item/ammo_casing/energy/lasergun, /obj/item/ammo_casing/energy/lasergun/burst)
 	ammo_x_offset = 1
 	shaded_charge = 1
 
@@ -33,6 +35,18 @@
 		fire_sound_volume = 50
 		burst_size = 1
 		spread = 0
+
+/obj/item/gun/energy/laser/focused
+	name = "focus laser rifle"
+	desc = "A more advanced laser rifle that emits lasers in a higher wavelength of light, allowing for partial penetration of matter."
+	icon_state = "laser"
+	item_state = "laser"
+	custom_materials = list(/datum/material/iron=3000, /datum/material/titanium=1000)
+	ammo_type = list(/obj/item/ammo_casing/energy/lasergun/focused)
+	ammo_x_offset = 1
+	shaded_charge = 1
+	dual_wield_spread = 24 //Slightly lighter weight, precision firing machine
+	fire_rate = 1.5 //Slightly slower firing than a regular laser gun
 
 /obj/item/gun/energy/laser/practice
 	name = "practice laser gun"

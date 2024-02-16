@@ -10,17 +10,15 @@
 	e_cost = 71
 	select_name = "kill"
 
-/obj/item/ammo_casing/energy/lasergun/carbine //300 Theoretical Damage
-	projectile_type = /obj/projectile/beam/laser/carbine
-	e_cost = 80
-	delay = 0
-	select_name = "single"
-
 /obj/item/ammo_casing/energy/lasergun/burst //324 Theoretical Damage
-	projectile_type = /obj/projectile/beam/laser/carbine/burst
+	projectile_type = /obj/projectile/beam/laser/burst
 	e_cost = 36
 	delay = 1.65
 	select_name = "burst"
+
+/obj/item/ammo_casing/energy/lasergun/focused //312 Theoretical Damage (ignoring AP & Collat)
+	projectile_type = /obj/projectile/beam/laser/focused
+	e_cost = 75 //13 shots total
 
 /obj/item/ammo_casing/energy/lasergun/captain
 	e_cost = 100 // Older technology is less efficient
