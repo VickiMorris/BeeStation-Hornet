@@ -28,22 +28,10 @@
 	eyeblur = 1
 	light_color = LIGHT_COLOR_PINK
 
-/obj/projectile/beam/laser/burst/carbine
-	damage = 13
-
 /obj/projectile/beam/laser/focused
 	damage = 24
 	armour_penetration = 25
-	projectile_piercing = PASSMOB
-
-//Can penetrate 1 mob, allows for hitting slightly deeper in crowds of enemies. Weaker after penetrating as well.
-/obj/projectile/beam/laser/focused/on_hit(atom/target, blocked = 0)
-	..() //Call the damage and piercing proc first so we don't get lower damage on the original target
-
-	if((ismob(target)) && (projectile_piercing == PASSMOB))
-		projectile_piercing = null
-		damage = 18
-		armour_penetration = 10
+	speed = 0.6 //Default speed is 0.8 seconds per tile
 
 /obj/projectile/beam/laser/heavylaser
 	name = "heavy laser"

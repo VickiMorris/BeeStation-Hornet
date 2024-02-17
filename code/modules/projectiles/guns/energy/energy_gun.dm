@@ -14,16 +14,17 @@
 	dual_wield_spread = 30
 
 /obj/item/gun/energy/e_gun/carbine
-	name = "energy carbine"
-	desc = "A slightly more compact design of the energy gun, sacrificing ammo capacity for portability."
+	name = "energy burst carbine"
+	desc = "A retrofitted energy rifle, designed to fire 2-shot bursts of either lethal or disabling lasers"
 	icon_state = "energycarbine"
 	item_state = "gun"
-	w_class = WEIGHT_CLASS_LARGE
-	gun_charge = 700 //7 laser, 17 disabler
+	ammo_type = list(/obj/item/ammo_casing/energy/disabler/burst, /obj/item/ammo_casing/energy/laser/burst)
+	fire_sound_volume = 40
+	burst_size = 2
+	spread = 8
 	charge_sections = 3
 	flight_x_offset = 16
 	flight_y_offset = 13
-	weapon_weight = WEAPON_LIGHT
 	dual_wield_spread = 24
 
 /obj/item/gun/energy/e_gun/mini

@@ -25,5 +25,11 @@
 	fire_sound = 'sound/weapons/taser2.ogg'
 	harmful = FALSE
 
+/obj/item/ammo_casing/energy/disabler/burst
+	projectile_type = /obj/projectile/beam/disabler/burst
+	select_name  = "disable"
+	e_cost = 25
+	delay = 1.65
+
 /obj/item/ammo_casing/energy/disabler/hos
 	e_cost = 50

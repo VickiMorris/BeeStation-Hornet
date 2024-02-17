@@ -29,7 +29,7 @@
 	if(select == 2) //Check for Burst Fire Mode, set stats
 		fire_sound_volume = 30
 		burst_size = 3
-		spread = 12
+		spread = 10
 
 	else //Default to Single Shot Stats otherwise
 		fire_sound_volume = 50
