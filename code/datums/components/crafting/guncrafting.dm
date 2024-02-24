@@ -28,6 +28,7 @@
 	desc = "A long piece of Silk that looks like a cable coil."
 	icon_state = "silkstring"
 
-/obj/item/weaponcrafting/empty_casings
-	name = "fistful of brass"
-	desc = "A handful of brass casings, used in the production of ammo."
+/obj/item/weaponcrafting/lenses
+	name = "convergence lens kit"
+	desc = "A set of highly polished lenses made out of a titanium-glass alloy, designed to focus light to a single point."
+	icon_state = "ishotgunstep1"
