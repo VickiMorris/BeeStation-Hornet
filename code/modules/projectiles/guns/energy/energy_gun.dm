@@ -16,15 +16,17 @@
 /obj/item/gun/energy/e_gun/carbine
 	name = "energy burst carbine"
 	desc = "A retrofitted energy rifle, designed to fire 2-shot bursts of either lethal or disabling lasers"
-	icon_state = "energycarbine"
+	icon_state = "energytac"
 	item_state = "gun"
 	ammo_type = list(/obj/item/ammo_casing/energy/disabler/burst, /obj/item/ammo_casing/energy/laser/burst)
 	fire_sound_volume = 40
 	burst_size = 2
 	spread = 8
-	charge_sections = 3
-	flight_x_offset = 16
-	flight_y_offset = 13
+
+	ammo_x_offset = 2 //Temp for e-tac sprite
+	//charge_sections = 3
+	//flight_x_offset = 16
+	//flight_y_offset = 13
 
 /obj/item/gun/energy/e_gun/mini
 	name = "miniature energy gun"
