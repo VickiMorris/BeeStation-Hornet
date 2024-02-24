@@ -24,11 +24,13 @@
 	impact_type = /obj/effect/projectile/impact/laser
 
 /obj/projectile/beam/laser/burst
+	icon_state = "weaklaser"
 	damage = 12
 	eyeblur = 1
 	light_color = LIGHT_COLOR_PINK
 
 /obj/projectile/beam/laser/focused
+	icon_state = "heavylaser"
 	damage = 24
 	armour_penetration = 25
 	speed = 0.6 //Default speed is 0.8 seconds per tile
@@ -98,6 +100,7 @@
 
 /obj/projectile/beam/disabler/burst
 	damage = 15
+	icon_state = "weakomnilaser"
 	light_color = LIGHT_COLOR_CYAN
 
 /obj/projectile/beam/disabler/pass_glass ///this is for the malf ai turret upgrade xdxdxd
