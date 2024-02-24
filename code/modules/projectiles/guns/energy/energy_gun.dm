@@ -25,7 +25,6 @@
 	charge_sections = 3
 	flight_x_offset = 16
 	flight_y_offset = 13
-	dual_wield_spread = 24
 
 /obj/item/gun/energy/e_gun/mini
 	name = "miniature energy gun"
